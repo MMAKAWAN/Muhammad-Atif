@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Atif - Creative Web Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb; /* Deep purple */
+            --secondary-color: hsl(218, 97%, 57%); /* Vibrant blue */
+            --accent-color: #c56eff; /* Lighter purple for accents */
+            --text-color: #f0f0f0; /* Light text for dark backgrounds */
+            --dark-text-color: #333; /* Dark text for light backgrounds */
+            --bg-color-dark: #1a1a2e; /* Dark background */
+            --bg-color-light: #ffffff; /* Light background for sections */
+            --bg-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --card-bg: rgba(255, 255, 255, 0.05); /* Subtle card background */
+            --card-border: rgba(255, 255, 255, 0.2);
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color-dark);
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--bg-color-dark);
+            color: var(--text-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { /* Site Title / Name */
+            margin: 0;
+            font-size: 1.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color-dark);
+        }
+         nav ul li a[href="#home"].active { /* Specific active style for Home */
+            background-color: transparent;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            border-radius: 0;
+        }
+        nav ul li a[href="#home"]:hover {
+             background-color: transparent;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            border-radius: 0;
+        }
+
+
+        /* Hero Section */
+        #home {
+            background: url('https://static.vecteezy.com/system/resources/previews/032/516/428/large_2x/a-blue-and-purple-flowing-wave-on-a-dark-background-modern-tech-abstract-background-generative-ai-free-photo.jpg') no-repeat center center/cover;
+            min-height: 90vh; /* Adjusted height */
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(10, 10, 20, 0.7); /* Darker, slightly blueish overlay */
+            z-index: 1;
+        }
+
+        #home .hero-content {
+            position: relative;
+            z-index: 2;
+            background-color: var(--card-bg);
+            padding: 40px 60px;
+            border-radius: 15px;
+            max-width: 750px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        #home .hero-content h2, #home .hero-content p {
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        #home .hero-content h2:hover, #home .hero-content p:hover {
+            transform: scale(1.03);
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+
+        #home h2 { /* Name */
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: 1px;
+        }
+
+        #home p { /* Title */
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            color: #ddd; /* Slightly dimmer than main heading */
+        }
+
+        /* General Section Styling */
+        section {
+            padding: 80px 0;
+        }
+        section:nth-child(even) { /* Alternating background for better separation */
+            background-color: rgba(255,255,255,0.03);
+        }
+
+
+        h2.section-title { /* Common styling for section titles */
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--accent-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--bg-gradient);
+            border-radius: 2px;
+        }
+
+
+        /* About Section */
+        #about {
+             background-color: var(--bg-color-dark); /* Explicit dark for this one */
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center; /* Center the text for a cleaner look */
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        #gallery .gallery-grid {
+            display: grid; /* Using grid for more robust layout */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        #gallery .gallery-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        #gallery .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05); /* Pop up and slightly zoom */
+            box-shadow: 0 12px 28px var(--shadow-color);
+        }
+
+        #gallery .gallery-item img {
+            width: 100%;
+            height: 250px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures images cover the area nicely */
+            display: block;
+        }
+
+        /* Reviews Section */
+        #reviews {
+            background: url('https://img.freepik.com/premium-photo/minimal-gradient-purple-bright-purple-neon-background-with-subtle-technology-aigenerated_964845-2268.jpg') no-repeat center center/cover;
+            position: relative;
+            color: var(--dark-text-color); /* Text needs to be dark on light/complex bg */
+        }
+        #reviews::before { /* Overlay for readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.85); /* Light overlay */
+            z-index: 1;
+        }
+        #reviews .container {
+            position: relative;
+            z-index: 2;
+        }
+         #reviews h2.section-title {
+            color: var(--primary-color); /* Match section title color to palette */
+        }
+        #reviews h2.section-title::after {
+             background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        }
+
+
+        #reviews .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        #reviews .review-card {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for readability */
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #reviews .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        #reviews .review-card p {
+            font-style: italic;
+            color: #444; /* Darker for better readability */
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        #reviews .review-card span {
+            display: block;
+            text-align: right;
+            font-weight: bold;
+            color: var(--secondary-color); /* Use a theme color for emphasis */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--bg-color-dark); /* Consistent dark theme for contact */
+        }
+        #contact .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        #contact .contact-item {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         #contact .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+        }
+
+        #contact .contact-item h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #contact .contact-item p {
+            font-size: 1.1rem;
+            color: #bbb;
+        }
+
+        /* Footer */
+        footer {
+            background: url('https://www.shutterstock.com/shutterstock/photos/1929364490/display_1500/stock-vector-black-abstract-background-design-modern-wavy-line-pattern-guilloche-curves-in-monochrome-colors-1929364490.jpg') no-repeat center center/cover;
+            color: #ffffff; /* Lighter text for dark footer bg */
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            position: relative;
+            border-top: 1px solid var(--card-border);
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #6a11cb; /* Dark overlay for readability */
+            z-index: 1;
+        }
+        footer .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                width: 95%;
+            }
+            #home h2 { font-size: 3rem; }
+            #home p { font-size: 1.6rem; }
+            h2.section-title { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header h1 {
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+             nav ul li a {
+                display: block; /* Make links take full width for easier tapping */
+            }
+
+            #home { min-height: 70vh; }
+            #home h2 { font-size: 2.5rem; }
+            #home p { font-size: 1.4rem; }
+            #home .hero-content { padding: 30px 40px; }
+
+            h2.section-title { font-size: 2.2rem; }
+            section { padding: 60px 0; }
+
+            #gallery .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            #reviews .review-grid { grid-template-columns: 1fr; } /* Stack reviews on mobile */
+            #contact .contact-grid { grid-template-columns: 1fr; } /* Stack contact items */
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 15px; }
+            #home h2 { font-size: 2rem; }
+            #home p { font-size: 1.2rem; }
+            #home .hero-content { padding: 20px; }
+            h2.section-title { font-size: 1.8rem; }
+             h2.section-title::after { width: 60px; }
+            nav ul li a { font-size: 0.95rem; padding: 10px; }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Muhammad Atif</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="hero-content">
+                <h2>Muhammad Atif</h2>
+                <p>Creative Web Designer</p>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>Hello! My name is Muhammad Atif and I’m a passionate and creative web designer. I specialize in building clean, responsive, and elegant websites using HTML, CSS, and modern UI principles. With a strong eye for design and user experience, I deliver websites that not only look great but also function flawlessly. I take pride in understanding client needs and turning ideas into reality with precision and creativity.</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="luca-bravo-XJXWbfSo2f0-unsplash.jpg" alt="Web Design Project 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="developer-8829735.jpg" alt="Web Design Project 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="software-developer-6521720.jpg" alt="Web Design Project 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="fotis-fotopoulos-LJ9KY8pIH3E-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="ilya-pavlov-OqtafYT5kTw-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="florian-olivo-4hbJ-eymZ1o-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="chris-ried-ieic5Tq8YMk-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="clint-patterson-dYEuFB8KQJk-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="arnold-francisca-f77Bh3inUpE-unsplash.jpg" alt="Web Design Project 4">
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews">
+            <div class="container">
+                <h2 class="section-title">Client Reviews</h2>
+                <div class="review-grid">
+                    <div class="review-card">
+                        <p>“Muhammad Atif delivered exactly what I needed, on time and with perfect attention to detail.”</p>
+                        <span>- Satisfied Client 1</span>
+                    </div>
+                    <div class="review-card">
+                        <p>“His design sense is amazing. My website now looks clean and professional.”</p>
+                        <span>- Satisfied Client 2</span>
+                    </div>
+                    <div class="review-card">
+                        <p>“He listens carefully to client needs and delivers impressive results.”</p>
+                        <span>- Satisfied Client 3</span>
+                    </div>
+                    <div class="review-card">
+                        <p>“Great communication and creative ideas throughout the project.”</p>
+                        <span>- Satisfied Client 4</span>
+                    </div>
+                    <div class="review-card">
+                        <p>“I highly recommend him for any web design work. He knows what he’s doing!”</p>
+                        <span>- Satisfied Client 5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Phone Number</h4>
+                    <p>[+923107878275]</p>
+                </div>
+                <div class="contact-item">
+                    <h4>WhatsApp</h4>
+                    <p>[+923464994435]</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>[atifawan0305786@gmail.com]</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Atif. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                // Update active class on click
+                document.querySelectorAll('nav a').forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+                 // Special handling for home link to ensure underline style is preferred
+                if (this.getAttribute('href') === '#home') {
+                    this.style.backgroundColor = 'transparent'; // Ensure no bg on active home
+                } else {
+                     document.querySelector('nav a[href="#home"]').style.backgroundColor = ''; // reset home if another is active
+                }
+            });
+        });
+
+        // Highlight nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 50; // Adjusted offset
+                if (pageYOffset >= sectionTop) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+                // Special handling for home link active style
+                if (link.getAttribute('href') === '#home' && link.classList.contains('active')) {
+                     link.style.backgroundColor = 'transparent';
+                } else if (link.getAttribute('href') === '#home') {
+                    link.style.backgroundColor = '';
+                }
+            });
+
+            // If no section is active (e.g., scrolled to the very top or below all sections)
+            // and we are at the top of the page, make 'Home' active.
+            if (currentSectionId === '' && pageYOffset < (sections[0] ? sections[0].offsetTop - headerHeight - 50 : 0)) {
+                const homeLink = document.querySelector('nav a[href="#home"]');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                    homeLink.style.backgroundColor = 'transparent';
+                }
+            } else if (currentSectionId === '') { // Scrolled past all sections
+                // Keep the last section active or clear all, depending on preference.
+                // For now, let's try to keep the last one active if it was.
+                // This logic might need refinement based on exact behavior desired at bottom of page.
+            }
+        });
+    </script>
+
+</body>
+</html>
